@@ -21,7 +21,7 @@ def bus_stations(request):
     paginator = Paginator(CONTENT, 10)
     page = paginator.get_page(page_number)
     data = {}
-    with open(settings.BUS_STATION_CSV, encoding= 'utf-8') as csvfile:
+    with open(settings.BUS_STATION_CSV, encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             data[row['ID']] = {'Name': row['Name'], 'Street': row['Street'], 'District': row['District']}
